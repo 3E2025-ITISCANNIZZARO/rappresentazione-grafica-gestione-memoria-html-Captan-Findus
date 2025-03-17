@@ -1,1 +1,235 @@
+ 
 
+body { 
+
+    font-family: Arial, sans-serif; 
+
+    text-align: center; 
+
+    background-color: #f4f4f4; 
+
+} 
+
+ 
+
+.memory-container { 
+
+    display: flex; 
+
+    flex-direction: column; 
+
+    align-items: center; 
+
+    width: 50%; 
+
+    margin: 20px auto; 
+
+    border: 2px solid black; 
+
+    padding: 10px; 
+
+    background: white; 
+
+} 
+
+ 
+
+.segment { 
+
+    width: 90%; 
+
+    padding: 15px; 
+
+    margin: 5px 0; 
+
+ 
+
+    text-align: center; 
+
+    font-weight: bold; 
+
+    border-radius: 5px; 
+
+} 
+
+ 
+
+.text-segment { background-color: #ffcccb; } /* Rosso chiaro */ 
+
+.data-segment { background-color: #f4a261; } /* Arancione */ 
+
+.heap-segment { background-color: #90ee90; position: relative; } /* Verde */ 
+
+.stack-segment { background-color: #add8e6; position: relative; } /* Azzurro */ 
+
+ 
+
+#heap, #stack { 
+
+    width: 80%; 
+
+    margin: 10px auto; 
+
+    min-height: 30px; 
+
+    background-color: white; 
+
+    border: 1px solid black; 
+
+} 
+
+ 
+
+ 
+
+.controls { 
+
+    margin-top: 20px; 
+
+} 
+
+ 
+
+button { 
+
+    margin: 5px; 
+
+    padding: 10px; 
+
+    font-size: 16px; 
+
+    cursor: pointer; 
+
+} 
+
+ 
+
+.legend { 
+
+    width: 50%; 
+
+    margin: 20px auto; 
+
+    text-align: left; 
+
+    background: white; 
+
+    padding: 10px; 
+
+    border: 1px solid black; 
+
+} 
+
+ 
+
+.color-box { 
+
+    display: inline-block; 
+
+    width: 20px; 
+
+    height: 20px; 
+
+    margin-right: 10px; 
+
+} 
+
+ 
+
+.text { background-color: #ffcccb; } 
+
+.data { background-color: #f4a261; } 
+
+.heap { background-color: #90ee90; } 
+
+.stack { background-color: #add8e6; }<!DOCTYPE html> 
+
+<html lang="it"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Gestione della Memoria</title> 
+
+    <link rel="stylesheet" href="styles.css"> 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+    <h1>Rappresentazione della Memoria</h1> 
+
+ 
+
+    <div class="memory-container"> 
+
+        <div class="segment text-segment">Text Segment</div> 
+
+        <div class="segment data-segment">Data Segment</div> 
+
+        <div class="segment heap-segment"> 
+
+            Heap Segment 
+
+            <div id="heap"></div> 
+
+        </div> 
+
+        <div class="segment stack-segment"> 
+
+            Stack Segment 
+
+            <div id="stack"></div> 
+
+        </div> 
+
+    </div> 
+
+ 
+
+    <div class="controls"> 
+
+ 
+
+        <button onclick="allocateMemory()">Allocare Heap</button> 
+
+        <button onclick="deallocateMemory()">Deallocare Heap</button> 
+
+        <button onclick="simulateFunctionCall()">Chiamata Funzione</button> 
+
+        <button onclick="clearStack()">Svuota Stack</button> 
+
+    </div> 
+
+ 
+
+    <div class="legend"> 
+
+        <h2>Legenda</h2> 
+
+        <p><span class="color-box text"></span> **Text Segment**: Contiene il codice eseguibile.</p> 
+
+        <p><span class="color-box data"></span> **Data Segment**: Contiene variabili globali e statiche.</p> 
+
+ 
+
+        <p><span class="color-box heap"></span> **Heap**: Contiene memoria allocata dinamicamente.</p> 
+
+        <p><span class="color-box stack"></span> **Stack**: Contiene le chiamate alle funzioni e le variabili locali.</p> 
+
+    </div> 
+
+ 
+
+    <script src="script.js"></script> 
+
+</body> 
+
+</html> 
